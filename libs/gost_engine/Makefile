@@ -60,6 +60,8 @@ endef
 
 CMAKE_OPTIONS += -DOPENSSL_ENGINES_DIR=/usr/lib/$(ENGINES_DIR)
 
+TARGET_CFLAGS += -Wno-error=stringop-overflow=
+
 define Package/libopenssl-gost_engine/install
 	$(INSTALL_DIR) $(1)/usr/lib/$(ENGINES_DIR) $(1)/etc/ssl/engines.cnf.d
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/bin/gost.so \
